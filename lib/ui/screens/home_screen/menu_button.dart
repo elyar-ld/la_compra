@@ -4,15 +4,16 @@ class MenuButton extends StatelessWidget {
   final String text;
   final IconData icon;
   final Color color;
+  final VoidCallback callback;
   
   const MenuButton({
-    Key? key, required this.text, required this.icon, required this.color,
+    Key? key, required this.text, required this.icon, required this.color, required this.callback,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: callback,
       child: Ink(
         height: 65,
         color: color,

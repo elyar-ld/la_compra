@@ -1,32 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:la_compra/ui/constants/constants_productos.dart';
+import 'package:la_compra/ui/screens/lista_productos/lista_productos.dart';
+import 'package:la_compra/ui/theme/theme_constants.dart';
 
+import '../../widgets/bottom_menu/bottom_menu.dart';
 import 'menu_button.dart';
 
 class HomeScreen extends StatelessWidget {
-const HomeScreen({ Key? key }) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('La Compra'),
-        actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.info))
-        ],
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.info))],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MenuButton(text: 'Café', icon: Icons.coffee, color: Theme.of(context).primaryColor),
-            const MenuButton(text: 'Limón', icon: Icons.store, color: Color(0xFF238A4C)),
-            const MenuButton(text: 'Aguacate', icon: Icons.archive_outlined, color: Color.fromARGB(255, 44, 57, 31)),
-            const MenuButton(text: 'Chayote', icon: Icons.chair, color: Color(0xFF71A53E)),
-            const MenuButton(text: 'Macadamia', icon: Icons.nature, color: Color(0xFFCC6E18)),
-            const MenuButton(text: 'Pimienta', icon: Icons.people_sharp, color: Color(0xFF343434)),
-          ],
+          children: infoProductos.entries
+              .map((producto) => MenuButton(
+                  text: producto.value['nombre']!,
+                  icon: producto.value['icono'],
+                  color: producto.value['color']!,
+                  callback: () {
+                    Navigator.push<void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            ListaProductos(producto: producto.key),
+                      ),
+                    );
+                  }))
+              .toList(),
         ),
       ),
+      bottomNavigationBar: const BottomMenu(),
     );
   }
 }
