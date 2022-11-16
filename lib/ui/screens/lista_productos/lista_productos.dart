@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:la_compra/ui/constants/constants_productos.dart';
+import 'package:la_compra/ui/screens/lista_productos/search_bar.dart';
 import 'package:la_compra/ui/widgets/bottom_menu/bottom_menu.dart';
+import 'package:la_compra/ui/widgets/info_producto.dart';
 
 class ListaProductos extends StatefulWidget {
   final String producto;
@@ -19,12 +21,60 @@ class _ListaProductosState extends State<ListaProductos> {
         title: Text(infoProductos[widget.producto]!['nombre']),
         backgroundColor: infoProductos[widget.producto]!['color'],
         actions: [
-          Icon(
-            infoProductos[widget.producto]!['icono'],
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Icon(
+              infoProductos[widget.producto]!['icono'],
+              size: 40,
+            ),
           ),
         ],
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          SearchBar(),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Text('Mostrando: todos', style: TextStyle(fontSize: 16),),
+          ),
+          Expanded(
+            child: ListView(
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+                Align(
+                  alignment: Alignment.center,
+                  child: InfoProducto()),
+              ],
+            ),
+          ),
+        ],
+      ),
       bottomNavigationBar: const BottomMenu(),
     );
   }

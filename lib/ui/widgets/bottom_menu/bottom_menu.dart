@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:la_compra/ui/theme/icomoon_icons.dart';
 import 'package:la_compra/ui/theme/theme_constants.dart';
 import 'package:la_compra/ui/widgets/bottom_menu/bottom_menu_item.dart';
 
@@ -14,7 +15,7 @@ const BottomMenu({ Key? key }) : super(key: key);
         
         child: Row(
           children: const [
-            BottomMenuItem(icon: Icons.monitor_weight, tag: 'Compras', selected: true,),
+            BottomMenuItem(icon: Icomoon.bascula, tag: 'Compras', selected: true,),
             BottomMenuItem(icon: Icons.star, tag: 'Favoritos',),
             BottomMenuItem(icon: Icons.person, tag: 'Perfil'),
           ],
