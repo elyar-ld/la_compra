@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:la_compra/ui/constants/constants_productos.dart';
 import 'package:la_compra/ui/screens/lista_productos/search_bar.dart';
 import 'package:la_compra/ui/widgets/bottom_menu/bottom_menu.dart';
-import 'package:la_compra/ui/widgets/info_producto.dart';
+import 'package:la_compra/ui/widgets/info_producto/info_producto.dart';
+import 'package:la_compra/ui/widgets/info_producto/tipo_info.dart';
 
 class ListaProductos extends StatefulWidget {
   final String producto;
-  
-  const ListaProductos({ Key? key, required this.producto }) : super(key: key);
+
+  const ListaProductos({Key? key, required this.producto}) : super(key: key);
 
   @override
   _ListaProductosState createState() => _ListaProductosState();
@@ -35,41 +36,69 @@ class _ListaProductosState extends State<ListaProductos> {
           SearchBar(),
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
-            child: Text('Mostrando: todos', style: TextStyle(fontSize: 16),),
+            child: Text(
+              'Mostrando: todos',
+              style: TextStyle(fontSize: 16),
+            ),
           ),
           Expanded(
             child: ListView(
               children: [
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
                 Align(
-                  alignment: Alignment.center,
-                  child: InfoProducto()),
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
+                Align(
+                    alignment: Alignment.center,
+                    child: InfoProducto(
+                      tipoInfo: TipoInfo.producto,
+                    )),
               ],
             ),
           ),

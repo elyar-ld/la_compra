@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:la_compra/ui/screens/home_screen/home_screen.dart';
 import 'package:la_compra/ui/screens/iniciarsesion_screen/iniciarsesion_screen.dart';
+import 'package:la_compra/ui/screens/perfil/perfil_screen.dart';
 import 'package:la_compra/ui/screens/registrarse_screen/registro_screen.dart';
 import 'package:la_compra/ui/theme/theme_constants.dart';
 
@@ -17,11 +18,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'La Compra',
       theme: lightTheme,
-      initialRoute: 'iniciarsesion',
+      initialRoute: 'inicio',
       routes: {
         'iniciarsesion': (context) => const IniciarsesionScreen(),
         'registro': (context) => const RegistroScreen(),
         'inicio': (context) => const HomeScreen(),
+        'perfil': (context) => const PerfilScreen(),
       },
     );
   }
