@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:la_compra/ui/screens/favoritos/favoritos_screen.dart';
 import 'package:la_compra/ui/screens/perfil/perfil_screen.dart';
 import 'package:la_compra/ui/theme/icomoon_icons.dart';
 import 'package:la_compra/ui/theme/theme_constants.dart';
@@ -24,7 +25,14 @@ class BottomMenu extends StatelessWidget {
             BottomMenuItem(
               icon: Icons.star,
               tag: 'Favoritos',
-              callback: () {},
+              callback: () {
+                Navigator.push<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => FavoritosScreen(),
+                  ),
+                );
+              },
             ),
             BottomMenuItem(
               icon: Icons.person,

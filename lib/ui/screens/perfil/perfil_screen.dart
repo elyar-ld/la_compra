@@ -1,9 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:la_compra/ui/constants/constants_productos.dart';
+import 'package:la_compra/ui/screens/perfil/nuevo_producto.dart';
+import 'package:la_compra/ui/theme/theme_constants.dart';
 import 'package:la_compra/ui/widgets/info_producto/info_producto.dart';
 import 'package:la_compra/ui/widgets/info_producto/tipo_info.dart';
 
-class PerfilScreen extends StatelessWidget {
+class PerfilScreen extends StatefulWidget {
   const PerfilScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PerfilScreen> createState() => _PerfilScreenState();
+}
+
+class _PerfilScreenState extends State<PerfilScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  List<String> productos = infoProductos.entries.map((producto) => producto.value['nombre']!.toString()).toList();
+  String productoActual = 'Café';
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this, initialIndex: 0);
+    _tabController.addListener(_handleTabIndex);
+  }
+
+  @override
+  void dispose() {
+    _tabController.removeListener(_handleTabIndex);
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  void _handleTabIndex() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +44,8 @@ class PerfilScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Perfil"),
-          bottom: const TabBar(
+          bottom: TabBar(
+            controller: _tabController,
             tabs: [
               Tab(
                 text: 'Mis datos',
@@ -24,50 +57,152 @@ class PerfilScreen extends StatelessWidget {
           ),
         ),
         body: TabBarView(
+          controller: _tabController,
           children: [
-            Icon(Icons.directions_car),
+            Container(
+              child: Column(
+                children: const [
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Nombre',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    'Elyar Alberto López Dávila',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'Correo electrónico',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    'elyar.rt.spdr@gmail.com',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'Tipo de usuario',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    'Vendedor',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                ],
+              ),
+            ),
             ListView(
-              children: [
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.perfil,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.perfil,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.perfil,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.perfil,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.perfil,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.perfil,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.perfil,
-                    )),
+              children: const [
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
+                InfoProducto(
+                  tipoInfo: TipoInfo.perfil,
+                ),
               ],
             ),
           ],
         ),
+        floatingActionButton: _bottomButton(),
       ),
     );
+  }
+
+  Widget? _bottomButton() {
+    return _tabController.index == 0
+        ? null
+        : FloatingActionButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AlertDialog(
+                        title: Text('Registrar nuevo producto'),
+                        content: NuevoProducto(productoInicial: productos[0], productosIniciales: productos, callback: (String? newValue){
+                          productoActual = newValue!;
+                        }),
+                        actions: [
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.black,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('Cancelar'),
+                          ),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.white,
+                              backgroundColor: primaryColor,
+                            ),
+                            onPressed: () {},
+                            child: Text('Registrar'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: Icon(
+              Icons.add,
+              size: 20.0,
+            ),
+          );
   }
 }

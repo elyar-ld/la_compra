@@ -43,62 +43,15 @@ class _ListaProductosState extends State<ListaProductos> {
           ),
           Expanded(
             child: ListView(
-              children: [
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
-                Align(
-                    alignment: Alignment.center,
-                    child: InfoProducto(
-                      tipoInfo: TipoInfo.producto,
-                    )),
+              children: const [
+                InfoProducto(tipoInfo: TipoInfo.producto,),
+                InfoProducto(tipoInfo: TipoInfo.producto,),
+                InfoProducto(tipoInfo: TipoInfo.producto,),
+                InfoProducto(tipoInfo: TipoInfo.producto,),
+                InfoProducto(tipoInfo: TipoInfo.producto,),
+                InfoProducto(tipoInfo: TipoInfo.producto,),
+                InfoProducto(tipoInfo: TipoInfo.producto,),
+                InfoProducto(tipoInfo: TipoInfo.producto,),
               ],
             ),
           ),

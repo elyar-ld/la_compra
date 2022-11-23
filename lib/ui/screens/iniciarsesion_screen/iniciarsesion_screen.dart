@@ -34,7 +34,7 @@ class IniciarsesionScreen extends StatelessWidget {
                   ),
                   const TextInput(
                       tag: 'Contraseña:',
-                      ktype: TextInputType.none,
+                      ktype: TextInputType.text,
                       isObscure: true),
                   const SizedBox(
                     height: 15,

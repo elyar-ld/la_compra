@@ -14,14 +14,17 @@ class TextInput extends StatelessWidget {
       children: [
         Text(tag),
         const SizedBox(height: 5,),
-        TextFormField(
-          enableSuggestions: false,
-          keyboardType: ktype,
-          obscureText: isObscure,
-          decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
+        Container(
+          height: 40,
+          child: TextFormField(
+            enableSuggestions: false,
+            keyboardType: ktype,
+            obscureText: isObscure,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
             ),
           ),
         ),

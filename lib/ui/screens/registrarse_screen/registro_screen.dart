@@ -53,7 +53,7 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   ),
                   const TextInput(
                       tag: 'Contraseña:',
-                      ktype: TextInputType.none,
+                      ktype: TextInputType.text,
                       isObscure: true),
                   const SizedBox(
                     height: 15,
