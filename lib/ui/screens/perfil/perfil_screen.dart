@@ -165,34 +165,30 @@ class _PerfilScreenState extends State<PerfilScreen>
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      AlertDialog(
-                        title: Text('Registrar nuevo producto'),
-                        content: NuevoProducto(productoInicial: productos[0], productosIniciales: productos, callback: (String? newValue){
-                          productoActual = newValue!;
-                        }),
-                        actions: [
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.black,
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text('Cancelar'),
-                          ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: primaryColor,
-                            ),
-                            onPressed: () {},
-                            child: Text('Registrar'),
-                          ),
-                        ],
+                  return AlertDialog(
+                    title: Text('Registrar nuevo producto'),
+                    content: SingleChildScrollView(
+                      child: NuevoProducto(productoInicial: productos[0], productosIniciales: productos, callback: (String? newValue){
+                        productoActual = newValue!;
+                      }),
+                    ),
+                    actions: [
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.black,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text('Cancelar'),
+                      ),
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: primaryColor,
+                        ),
+                        onPressed: () {},
+                        child: Text('Registrar'),
                       ),
                     ],
                   );

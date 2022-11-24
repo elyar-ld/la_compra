@@ -20,7 +20,7 @@ class NuevoProducto extends StatelessWidget {
           child: Column(
         children: [
           TextDropdown(
-            tag: 'Soy:',
+            tag: 'Producto:',
             currentValue: productoInicial,
             dpvalues: productosIniciales,
             dpCallback: callback,

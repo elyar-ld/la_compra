@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:la_compra/ui/constants/constants_productos.dart';
 import 'package:la_compra/ui/screens/lista_productos/lista_productos.dart';
 import 'package:la_compra/ui/theme/theme_constants.dart';
@@ -13,8 +14,17 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('La Compra'),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.info))],
+        title: SvgPicture.asset(
+          'assets/images/laCompra-logo-blanco.svg',
+          width: 120,
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'acerca');
+              },
+              icon: const Icon(Icons.info))
+        ],
       ),
       body: Center(
         child: Column(

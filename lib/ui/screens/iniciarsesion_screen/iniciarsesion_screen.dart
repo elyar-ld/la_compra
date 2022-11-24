@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:la_compra/ui/screens/home_screen/home_screen.dart';
 import 'package:la_compra/ui/theme/theme_constants.dart';
 import 'package:la_compra/ui/widgets/main_button.dart';
@@ -16,6 +17,7 @@ class IniciarsesionScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            SvgPicture.asset('assets/images/laCompra-logo.svg', width: 180,),
             Container(
                 width: 300,
                 child: const Text(

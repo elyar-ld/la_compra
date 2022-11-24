@@ -37,17 +37,20 @@ class _TextDropdownState extends State<TextDropdown> {
               ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: DropdownButton(
-              value: widget.currentValue,
-              icon: const Icon(Icons.keyboard_arrow_down),
-              isExpanded: true,
-              items: widget.dpvalues.map((String item) {
-                return DropdownMenuItem(
-                  value: item,
-                  child: Text(item),
-                );
-              }).toList(),
-              onChanged: widget.dpCallback,
+            child: SizedBox(
+              height: 40,
+              child: DropdownButton(
+                value: widget.currentValue,
+                icon: const Icon(Icons.keyboard_arrow_down),
+                isExpanded: true,
+                items: widget.dpvalues.map((String item) {
+                  return DropdownMenuItem(
+                    value: item,
+                    child: Text(item),
+                  );
+                }).toList(),
+                onChanged: widget.dpCallback,
+              ),
             ),
           ),
         ),

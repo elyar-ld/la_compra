@@ -9,7 +9,7 @@ class SocialButton extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Map<ButtonType, Color> colors = {ButtonType.facebook: const Color(0xFF3b5998), ButtonType.google: const Color(0xFFDB4437)};
-    Map<ButtonType, IconData> icons = {ButtonType.facebook: Icons.face, ButtonType.google: Icons.g_mobiledata};
+    Map<ButtonType, IconData> icons = {ButtonType.facebook: Icons.facebook, ButtonType.google: Icons.g_mobiledata};
     Map<ButtonType, String> tags = {ButtonType.facebook: 'Facebook', ButtonType.google: 'Google'};
 
     return SizedBox(
