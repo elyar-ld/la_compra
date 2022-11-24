@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: SvgPicture.asset(
           'assets/images/laCompra-logo-blanco.svg',
           width: 120,

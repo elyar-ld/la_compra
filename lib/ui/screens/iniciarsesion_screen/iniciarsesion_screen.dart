@@ -12,12 +12,16 @@ class IniciarsesionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SvgPicture.asset('assets/images/laCompra-logo.svg', width: 180,),
+            SvgPicture.asset(
+              'assets/images/laCompra-logo.svg',
+              width: 180,
+            ),
             Container(
                 width: 300,
                 child: const Text(
@@ -42,9 +46,10 @@ class IniciarsesionScreen extends StatelessWidget {
                     height: 15,
                   ),
                   MainButton(
-                    tag: 'Iniciar sesión', 
-                    myFunction: (){
-                      Navigator.of(context).pushNamedAndRemoveUntil('inicio', (Route route) => false);
+                    tag: 'Iniciar sesión',
+                    myFunction: () {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          'inicio', (Route route) => false);
                     },
                   ),
                 ],
@@ -70,7 +75,8 @@ class IniciarsesionScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil('registro', (Route route) => false);
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      'registro', (Route route) => false);
                 },
                 child: Text(
                   'Registrarme',

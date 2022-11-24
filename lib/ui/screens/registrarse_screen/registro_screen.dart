@@ -16,28 +16,31 @@ class RegistroScreen extends StatefulWidget {
 }
 
 class _RegistroScreenState extends State<RegistroScreen> {
-
   List<String> tiposUsuario = ['Vendedor', 'Comprador'];
   String tipoUsuario = 'Vendedor';
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(40,0,40,40),
+            padding: const EdgeInsets.fromLTRB(40, 0, 40, 40),
             child: Wrap(
               runSpacing: 25,
               alignment: WrapAlignment.center,
               children: [
-                SvgPicture.asset('assets/images/laCompra-logo.svg', width: 180,),
+                SvgPicture.asset(
+                  'assets/images/laCompra-logo.svg',
+                  width: 180,
+                ),
                 const SizedBox(
                     width: 300,
                     child: Text(
                       'Registrarse',
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                     )),
                 Form(
                   child: Column(
@@ -64,21 +67,21 @@ class _RegistroScreenState extends State<RegistroScreen> {
                         height: 15,
                       ),
                       TextDropdown(
-                          tag: 'Soy:',
-                          currentValue: tipoUsuario,
-                          dpvalues: tiposUsuario, 
-                          dpCallback: (String? newValue) {
-                            setState(() {
-                              tipoUsuario = newValue!;
-                            });
-                          },
+                        tag: 'Soy:',
+                        currentValue: tipoUsuario,
+                        dpvalues: tiposUsuario,
+                        dpCallback: (String? newValue) {
+                          setState(() {
+                            tipoUsuario = newValue!;
+                          });
+                        },
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       MainButton(
-                        tag: 'Registrarme', 
-                        myFunction: (){
+                        tag: 'Registrarme',
+                        myFunction: () {
                           //print(dpcurrentValue);
                         },
                       ),
@@ -105,7 +108,8 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).pushNamedAndRemoveUntil('iniciarsesion', (Route route) => false);
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          'iniciarsesion', (Route route) => false);
                     },
                     child: Text(
                       'Iniciar sesión',

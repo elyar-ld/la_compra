@@ -16,7 +16,9 @@ class _PerfilScreenState extends State<PerfilScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  List<String> productos = infoProductos.entries.map((producto) => producto.value['nombre']!.toString()).toList();
+  List<String> productos = infoProductos.entries
+      .map((producto) => producto.value['nombre']!.toString())
+      .toList();
   String productoActual = 'Café';
 
   @override
@@ -42,6 +44,7 @@ class _PerfilScreenState extends State<PerfilScreen>
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text("Perfil"),
           bottom: TabBar(
@@ -168,9 +171,14 @@ class _PerfilScreenState extends State<PerfilScreen>
                   return AlertDialog(
                     title: Text('Registrar nuevo producto'),
                     content: SingleChildScrollView(
-                      child: NuevoProducto(productoInicial: productos[0], productosIniciales: productos, callback: (String? newValue){
-                        productoActual = newValue!;
-                      }),
+                      child: NuevoProducto(
+                          productoInicial: productos[0],
+                          productosIniciales: productos,
+                          callback: (String? newValue) {
+                            setState(() {
+                              productoActual = newValue!;
+                            });
+                          }),
                     ),
                     actions: [
                       TextButton(
