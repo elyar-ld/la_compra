@@ -24,7 +24,7 @@ class BottomMenuItem extends StatelessWidget {
           child: DefaultTextStyle.merge(
             style: TextStyle(color: Colors.white, fontSize: 16),
             child: Container(
-              color: selected != null ? Color(0xFFA82018) : Colors.transparent,
+              color: selected! ? Color(0xFFA82018) : Colors.transparent,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,

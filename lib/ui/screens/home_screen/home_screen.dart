@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
               .toList(),
         ),
       ),
-      bottomNavigationBar: const BottomMenu(),
+      bottomNavigationBar: const BottomMenu(selected: 0,),
     );
   }
 }

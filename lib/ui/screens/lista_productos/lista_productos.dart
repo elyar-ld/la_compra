@@ -57,7 +57,7 @@ class _ListaProductosState extends State<ListaProductos> {
           ),
         ],
       ),
-      bottomNavigationBar: const BottomMenu(),
+      bottomNavigationBar: const BottomMenu(selected: 0,),
     );
   }
 }
