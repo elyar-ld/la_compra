@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:la_compra/ui/constants/constants_productos.dart';
 import 'package:la_compra/ui/screens/perfil/nuevo_producto.dart';
 import 'package:la_compra/ui/theme/theme_constants.dart';
+import 'package:la_compra/ui/widgets/bottom_menu/bottom_menu.dart';
 import 'package:la_compra/ui/widgets/info_producto/info_producto.dart';
 import 'package:la_compra/ui/widgets/info_producto/tipo_info.dart';
 
@@ -161,6 +162,9 @@ class _PerfilScreenState extends State<PerfilScreen>
           ],
         ),
         floatingActionButton: _bottomButton(),
+        bottomNavigationBar: const BottomMenu(
+          selected: 2,
+        ),
       ),
     );
   }
@@ -174,17 +178,16 @@ class _PerfilScreenState extends State<PerfilScreen>
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
+                    scrollable: true,
                     title: Text('Registrar nuevo producto'),
-                    content: SingleChildScrollView(
-                      child: NuevoProducto(
-                          productoInicial: productos[0],
-                          productosIniciales: productos,
-                          callback: (String? newValue) {
-                            setState(() {
-                              productoActual = newValue!;
-                            });
-                          }),
-                    ),
+                    content: NuevoProducto(
+                        productoInicial: productos[0],
+                        productosIniciales: productos,
+                        callback: (String? newValue) {
+                          setState(() {
+                            productoActual = newValue!;
+                          });
+                        }),
                     actions: [
                       TextButton(
                         style: TextButton.styleFrom(
