@@ -57,7 +57,7 @@ class _InfoProductoState extends State<InfoProducto> {
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: DefaultTextStyle.merge(
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 14),
                   child: Container(
                     child: Row(
                       children: [
@@ -70,7 +70,11 @@ class _InfoProductoState extends State<InfoProducto> {
                                   'Don Manuel',
                                   style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
-                                Text('Mata Obscura, Totutla, Ver.'),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 5.0),
+                                  child: Text('Mata Obscura, Totutla, Ver.'),
+                                ),
                                 Text('Café cereza'),
                               ],
                             ),
@@ -82,14 +86,20 @@ class _InfoProductoState extends State<InfoProducto> {
                             children: [
                               Text(
                                 '\$ 999.50',
-                                style: TextStyle(fontSize: 24),
+                                style: TextStyle(fontSize: 20),
                               ),
                               Text('kilo'),
-                              Icon(
-                                Icons.star,
-                                size: 35,
-                                color: Colors.amber,
-                              ),
+                              if (widget.tipoInfo == TipoInfo.perfil)
+                                const Icon(
+                                  Icons.edit,
+                                  size: 35,
+                                ),
+                              if (widget.tipoInfo != TipoInfo.perfil)
+                                const Icon(
+                                  Icons.star,
+                                  size: 35,
+                                  color: Colors.amber,
+                                ),
                             ],
                           ),
                         ),
@@ -126,7 +136,8 @@ class _InfoProductoState extends State<InfoProducto> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    if(thumbDownActive) thumbDownActive = !thumbDownActive;
+                                    if (thumbDownActive)
+                                      thumbDownActive = !thumbDownActive;
                                     thumbUpActive = !thumbUpActive;
                                   });
                                 },
@@ -143,7 +154,8 @@ class _InfoProductoState extends State<InfoProducto> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    if(thumbUpActive) thumbUpActive = !thumbUpActive;
+                                    if (thumbUpActive)
+                                      thumbUpActive = !thumbUpActive;
                                     thumbDownActive = !thumbDownActive;
                                   });
                                   if (thumbDownActive) {
@@ -213,7 +225,8 @@ class _InfoProductoState extends State<InfoProducto> {
           children: [
             AlertDialog(
               title: Text('Informar precio'),
-              content: const TextInput(tag: 'Precio', ktype: TextInputType.number, isObscure: false),
+              content: const TextInput(
+                  tag: 'Precio', ktype: TextInputType.number, isObscure: false),
               actions: [
                 TextButton(
                   style: TextButton.styleFrom(
@@ -224,14 +237,12 @@ class _InfoProductoState extends State<InfoProducto> {
                   },
                   child: Text('Cancelar'),
                 ),
-                                TextButton(
+                TextButton(
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: primaryColor,
                   ),
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                   child: Text('Enviar'),
                 ),
               ],

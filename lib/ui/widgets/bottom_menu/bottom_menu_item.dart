@@ -22,7 +22,7 @@ class BottomMenuItem extends StatelessWidget {
         child: InkWell(
           onTap: callback,
           child: DefaultTextStyle.merge(
-            style: TextStyle(color: Colors.white, fontSize: 16),
+            style: TextStyle(color: Colors.white, fontSize: 14),
             child: Container(
               color: selected! ? Color(0xFFA82018) : Colors.transparent,
               child: Column(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:la_compra/ui/constants/constants_productos.dart';
 import 'package:la_compra/ui/screens/perfil/nuevo_producto.dart';
 import 'package:la_compra/ui/theme/theme_constants.dart';
-import 'package:la_compra/ui/widgets/bottom_menu/bottom_menu.dart';
 import 'package:la_compra/ui/widgets/info_producto/info_producto.dart';
 import 'package:la_compra/ui/widgets/info_producto/tipo_info.dart';
 
@@ -49,6 +49,8 @@ class _PerfilScreenState extends State<PerfilScreen>
         appBar: AppBar(
           title: Text("Perfil"),
           bottom: TabBar(
+            labelStyle:
+                TextStyle(fontFamily: GoogleFonts.comfortaa().fontFamily),
             controller: _tabController,
             tabs: [
               Tab(
@@ -63,8 +65,10 @@ class _PerfilScreenState extends State<PerfilScreen>
         body: TabBarView(
           controller: _tabController,
           children: [
-            Container(
+            Padding(
+              padding: const EdgeInsets.all(12.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   SizedBox(
                     height: 20,
@@ -72,50 +76,50 @@ class _PerfilScreenState extends State<PerfilScreen>
                   Text(
                     'Nombre',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     'Elyar Alberto López Dávila',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                   Text(
                     'Correo electrónico',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     'elyar.rt.spdr@gmail.com',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                   Text(
                     'Tipo de usuario',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     'Vendedor',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                 ],
               ),
@@ -157,7 +161,6 @@ class _PerfilScreenState extends State<PerfilScreen>
           ],
         ),
         floatingActionButton: _bottomButton(),
-        bottomNavigationBar: const BottomMenu(selected: 2,),
       ),
     );
   }
@@ -171,16 +174,17 @@ class _PerfilScreenState extends State<PerfilScreen>
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    scrollable: true,
                     title: Text('Registrar nuevo producto'),
-                    content: NuevoProducto(
-                        productoInicial: productos[0],
-                        productosIniciales: productos,
-                        callback: (String? newValue) {
-                          setState(() {
-                            productoActual = newValue!;
-                          });
-                        }),
+                    content: SingleChildScrollView(
+                      child: NuevoProducto(
+                          productoInicial: productos[0],
+                          productosIniciales: productos,
+                          callback: (String? newValue) {
+                            setState(() {
+                              productoActual = newValue!;
+                            });
+                          }),
+                    ),
                     actions: [
                       TextButton(
                         style: TextButton.styleFrom(
